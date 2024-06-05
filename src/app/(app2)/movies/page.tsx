@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: '../../../../public/fonts/Maximilian.ttf' });
-export default function page() {
+export default function Movies() {
 	const [isLandscape, setIsLandscape] = useState(true);
 	const [quote, setQuote] = useState('');
 	const [movie, setMovie] = useState('');
@@ -18,7 +18,7 @@ export default function page() {
 	const [url, setUrl] = useState('');
 	const ref = useRef('');
 	const getPost = (data: any) => {
-		const box = document.querySelector('.box');
+		const box: HTMLElement = document.querySelector('.box')!;
 		fetch(
 			`https://api.themoviedb.org/3/search/movie?query=${data.movie}&include_adult=true&language=en-US&page=1&year=${data.year}`,
 			{
@@ -39,10 +39,10 @@ export default function page() {
 						? `https://image.tmdb.org/t/p/original${backdrop_path}`
 						: `https://image.tmdb.org/t/p/original${poster_path}`;
 					box.style.transition = 'opacity 1s';
-					box.style.opacity = 0;
+					box.style.opacity = '0';
 					setTimeout(() => {
 						box.style.backgroundImage = `url(${poster_link})`;
-						box.style.opacity = 1;
+						box.style.opacity = '1';
 					}, 1000);
 				} else {
 					box.style.backgroundImage = `url('')`;
