@@ -80,7 +80,7 @@ export default function RootLayout({
           <SwrConfigClient>
             <ThemeProvider attribute="class">
               <main className={clsx(
-                'mx-3 mb-3',
+                'mx-3 mb-3 min-h-screen',
                 'lg:mx-6 lg:mb-6',
               )}>
                 <Nav siteDomainOrTitle={SITE_DOMAIN_OR_TITLE} />
